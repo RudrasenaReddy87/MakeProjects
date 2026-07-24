@@ -1,0 +1,34 @@
+[
+    {
+        "Domain": "Agentic AI",
+        "Project_CSV": "Agentic_AI.csv"
+    },
+    {
+        "Domain": "AI",
+        "Project_CSV": "Agentic_AI.csv"
+    },
+    {
+        "Domain": "Cybersecurity",
+        "Project_CSV": "Agentic_AI.csv"
+    },
+    {
+        "Domain": "Data Science",
+        "Project_CSV": "Agentic_AI.csv"
+    },
+    {
+        "Domain": "Deep Learning",
+        "Project_CSV": "Agentic_AI.csv"
+    },
+    {
+        "Domain": "Machine Learning",
+        "Project_CSV": "Agentic_AI.csv"
+    },
+    {
+        "Domain": "NLP",
+        "Project_CSV": "Agentic_AI.csv"
+    },
+    {
+        "Domain": "Quantum Inspired ML",
+        "Project_CSV": "Agentic_AI.csv"
+    }
+]

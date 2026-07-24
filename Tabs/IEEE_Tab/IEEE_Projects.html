@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explore IEEE research-backed projects across cutting-edge technology domains like AI, Machine Learning, Cybersecurity, and more.">
+    <title>IEEE Projects - MakeProjects.in</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="IEEE_Style.css">
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <header id="site-header" class="site-header">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo-link">
+                <div class="logo-icon">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <rect width="32" height="32" rx="8" fill="#7c3aed" />
+                        <path d="M8 16l4-6 4 6-4 6z" fill="#c4b5fd" />
+                        <path d="M16 16l4-6 4 6-4 6z" fill="#ede9fe" />
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-name">MakeProjects.in</span>
+                    <span class="logo-tagline">Build. Learn. Get Placed.</span>
+                </div>
+            </a>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle navigation">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+            <nav id="main-nav" class="main-nav">
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#" class="nav-active">IEEE Projects</a></li>
+                    <li><a href="../General_Tab/General_projects.html">General Projects</a></li>
+                    <li><a href="../How_it_works/how_it_works.html">How It Works</a></li>
+                    <li><a href="../Request/Request.html">Request</a></li>
+                    <li><a href="../Contact_US/Contact.html">Contact Us</a></li>
+                    <li><a href="../About/About.html">About Us</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- ===== HERO BANNER ===== -->
+    <section id="hero-banner" class="hero-banner">
+        <div class="hero-bg-pattern"></div>
+        <div class="hero-content">
+            <h1>IEEE Projects</h1>
+            <p>Research-backed projects based on IEEE Xplore indexed papers.<br>Build innovative solutions using the
+                latest technologies.</p>
+        </div>
+        <!-- Decorative floating elements -->
+        <div class="hero-decoration">
+            <div class="deco-circle deco-circle-1"></div>
+            <div class="deco-circle deco-circle-2"></div>
+            <div class="deco-circle deco-circle-3"></div>
+            <div class="deco-grid"></div>
+        </div>
+    </section>
+
+    <!-- ===== BREADCRUMB ===== -->
+    <div class="breadcrumb-bar">
+        <div class="page-container">
+            <nav aria-label="Breadcrumb">
+                <span><a href="../../index.html">Home</a></span>
+                <span class="breadcrumb-sep">&gt;</span>
+                <span class="breadcrumb-current">IEEE Projects</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ===== MAIN LAYOUT ===== -->
+    <div class="page-container page-layout">
+
+        <!-- Sidebar -->
+        <aside id="sidebar" class="sidebar">
+            <div class="sidebar-categories">
+                <div class="sidebar-header">
+                    <h2 class="sidebar-title">Categories</h2>
+                    <button id="mobile-category-toggle" class="mobile-category-btn" aria-label="Toggle Categories">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                </div>
+                <ul id="category-list" class="category-list">
+                    <li class="active" data-category="all">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7" rx="1" />
+                            <rect x="14" y="3" width="7" height="7" rx="1" />
+                            <rect x="3" y="14" width="7" height="7" rx="1" />
+                            <rect x="14" y="14" width="7" height="7" rx="1" />
+                        </svg>
+                        All Domains
+                    </li>
+                    <li data-category="agentic-ai">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="3" />
+                            <path
+                                d="M12 1v4m0 14v4M4.22 4.22l2.83 2.83m9.9 9.9l2.83 2.83M1 12h4m14 0h4M4.22 19.78l2.83-2.83m9.9-9.9l2.83-2.83" />
+                        </svg>
+                        Agentic AI
+                    </li>
+                    <li data-category="ai">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 2a7 7 0 017 7c0 3-2 5-4 6v3H9v-3c-2-1-4-3-4-6a7 7 0 017-7z" />
+                            <line x1="9" y1="21" x2="15" y2="21" />
+                        </svg>
+                        AI
+                    </li>
+                    <li data-category="cybersecurity">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                        Cybersecurity
+                    </li>
+                    <li data-category="data-science">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="18" y1="20" x2="18" y2="10" />
+                            <line x1="12" y1="20" x2="12" y2="4" />
+                            <line x1="6" y1="20" x2="6" y2="14" />
+                        </svg>
+                        Data Science
+                    </li>
+                    <li data-category="deep-learning">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="6" cy="6" r="2" />
+                            <circle cx="18" cy="6" r="2" />
+                            <circle cx="6" cy="18" r="2" />
+                            <circle cx="18" cy="18" r="2" />
+                            <circle cx="12" cy="12" r="2" />
+                            <line x1="6" y1="8" x2="12" y2="10" />
+                            <line x1="18" y1="8" x2="12" y2="10" />
+                            <line x1="12" y1="14" x2="6" y2="16" />
+                            <line x1="12" y1="14" x2="18" y2="16" />
+                        </svg>
+                        Deep Learning
+                    </li>
+                    <li data-category="machine-learning">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="3" />
+                            <path
+                                d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" />
+                        </svg>
+                        Machine Learning
+                    </li>
+                    <li data-category="nlp">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" />
+                            <line x1="8" y1="21" x2="16" y2="21" />
+                            <line x1="12" y1="17" x2="12" y2="21" />
+                        </svg>
+                        NLP
+                    </li>
+                    <li data-category="quantum-ml">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="2" />
+                            <ellipse cx="12" cy="12" rx="10" ry="4" />
+                            <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)" />
+                            <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)" />
+                        </svg>
+                        Quantum Inspired ML
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-info-card">
+                <div class="info-card-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon
+                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                </div>
+                <h3>Why IEEE Projects?</h3>
+                <p>Work on ideas backed by IEEE research to strengthen your skills and resume.</p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="domain-header">
+                <div class="domain-header-text">
+                    <h2>Choose a Domain</h2>
+                    <p>Explore IEEE projects by cutting-edge technology domains.</p>
+                </div>
+                <div id="search-bar" class="search-bar">
+                    <input type="text" id="search-input" placeholder="Search domains..." aria-label="Search domains">
+                    <button id="search-btn" class="search-icon-btn" aria-label="Search">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div id="domain-grid" class="domain-grid">
+                <!-- Agentic AI -->
+                <div class="domain-card" data-category="agentic-ai">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="16" y="8" width="32" height="28" rx="6" />
+                            <circle cx="26" cy="22" r="3" />
+                            <circle cx="38" cy="22" r="3" />
+                            <path d="M24 30h16" />
+                            <rect x="22" y="40" width="20" height="10" rx="3" />
+                            <line x1="28" y1="36" x2="28" y2="40" />
+                            <line x1="36" y1="36" x2="36" y2="40" />
+                            <line x1="26" y1="50" x2="26" y2="56" />
+                            <line x1="38" y1="50" x2="38" y2="56" />
+                            <circle cx="10" cy="20" r="4" />
+                            <line x1="14" y1="20" x2="16" y2="20" />
+                            <circle cx="54" cy="20" r="4" />
+                            <line x1="48" y1="20" x2="50" y2="20" />
+                        </svg>
+                    </div>
+                    <h3>Agentic AI</h3>
+                    <span class="project-count">50 Projects</span>
+                    <p class="card-desc">Multi-agent systems, autonomous agents and intelligent automation.</p>
+                    <a href="../../Templates/List of Projects/Project_display.html?domain=Agentic%20AI" class="view-projects-btn">View Projects <span>&rarr;</span></a>
+                </div>
+
+                <!-- AI -->
+                <div class="domain-card" data-category="ai">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="12" y="12" width="40" height="40" rx="8" />
+                            <circle cx="32" cy="28" r="6" />
+                            <path d="M22 44c0-5.5 4.5-10 10-10s10 4.5 10 10" />
+                            <circle cx="18" cy="8" r="3" />
+                            <line x1="18" y1="11" x2="18" y2="12" />
+                            <circle cx="46" cy="8" r="3" />
+                            <line x1="46" y1="11" x2="46" y2="12" />
+                            <circle cx="8" cy="32" r="3" />
+                            <line x1="11" y1="32" x2="12" y2="32" />
+                            <circle cx="56" cy="32" r="3" />
+                            <line x1="52" y1="32" x2="53" y2="32" />
+                        </svg>
+                    </div>
+                    <h3>AI</h3>
+                    <span class="project-count">50 Projects</span>
+                    <p class="card-desc">Artificial intelligence techniques and smart applications.</p>
+                    <a href="../../Templates/List of Projects/Project_display.html?domain=AI" class="view-projects-btn">View Projects <span>&rarr;</span></a>
+                </div>
+
+                <!-- Cybersecurity -->
+                <div class="domain-card" data-category="cybersecurity">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M32 4L8 16v16c0 14 10.7 27 24 32 13.3-5 24-18 24-32V16L32 4z" />
+                            <path d="M24 32l6 6 12-12" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <h3>Cybersecurity</h3>
+                    <span class="project-count">50 Projects</span>
+                    <p class="card-desc">Security, privacy and threat detection solutions.</p>
+                    <a href="../../Templates/List of Projects/Project_display.html?domain=Cybersecurity" class="view-projects-btn">View Projects <span>&rarr;</span></a>
+                </div>
+
+                <!-- Data Science -->
+                <div class="domain-card" data-category="data-science">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="8" y="8" width="48" height="48" rx="6" />
+                            <line x1="16" y1="48" x2="16" y2="30" />
+                            <line x1="26" y1="48" x2="26" y2="20" />
+                            <line x1="36" y1="48" x2="36" y2="34" />
+                            <line x1="46" y1="48" x2="46" y2="14" />
+                            <polyline points="14,24 26,16 36,28 48,12" stroke-linecap="round" stroke-linejoin="round" />
+                            <circle cx="48" cy="12" r="2" fill="currentColor" />
+                        </svg>
+                    </div>
+                    <h3>Data Science</h3>
+                    <span class="project-count">50 Projects</span>
+                    <p class="card-desc">Data analysis, visualization and insight-driven solutions.</p>
+                    <a href="../../Templates/List of Projects/Project_display.html?domain=Data%20Science" class="view-projects-btn">View Projects <span>&rarr;</span></a>
+                </div>
+
+                <!-- Deep Learning -->
+                <div class="domain-card" data-category="deep-learning">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="16" r="4" />
+                            <circle cx="12" cy="32" r="4" />
+                            <circle cx="12" cy="48" r="4" />
+                            <circle cx="32" cy="12" r="4" />
+                            <circle cx="32" cy="32" r="4" />
+                            <circle cx="32" cy="52" r="4" />
+                            <circle cx="52" cy="22" r="4" />
+                            <circle cx="52" cy="42" r="4" />
+                            <line x1="16" y1="16" x2="28" y2="12" />
+                            <line x1="16" y1="16" x2="28" y2="32" />
+                            <line x1="16" y1="32" x2="28" y2="12" />
+                            <line x1="16" y1="32" x2="28" y2="32" />
+                            <line x1="16" y1="32" x2="28" y2="52" />
+                            <line x1="16" y1="48" x2="28" y2="32" />
+                            <line x1="16" y1="48" x2="28" y2="52" />
+                            <line x1="36" y1="12" x2="48" y2="22" />
+                            <line x1="36" y1="32" x2="48" y2="22" />
+                            <line x1="36" y1="32" x2="48" y2="42" />
+                            <line x1="36" y1="52" x2="48" y2="42" />
+                        </svg>
+                    </div>
+                    <h3>Deep Learning</h3>
+                    <span class="project-count">50 Projects</span>
+                    <p class="card-desc">Deep neural networks and advanced learning models.</p>
+                    <a href="../../Templates/List of Projects/Project_display.html?domain=Deep%20Learning" class="view-projects-btn">View Projects <span>&rarr;</span></a>
+                </div>
+
+                <!-- Machine Learning -->
+                <div class="domain-card" data-category="machine-learning">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="32" cy="32" r="8" />
+                            <path d="M32 4v10M32 50v10M4 32h10M50 32h10" />
+                            <path d="M12.2 12.2l7 7M44.8 44.8l7 7M12.2 51.8l7-7M44.8 19.2l7-7" />
+                            <circle cx="32" cy="32" r="22" stroke-dasharray="4 4" />
+                        </svg>
+                    </div>
+                    <h3>Machine Learning</h3>
+                    <span class="project-count">50 Projects</span>
+                    <p class="card-desc">ML algorithms and predictive modeling projects.</p>
+                    <a href="../../Templates/List of Projects/Project_display.html?domain=Machine%20Learning" class="view-projects-btn">View Projects <span>&rarr;</span></a>
+                </div>
+
+                <!-- NLP -->
+                <div class="domain-card" data-category="nlp">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="8" y="10" width="48" height="36" rx="6" />
+                            <line x1="16" y1="22" x2="48" y2="22" />
+                            <line x1="16" y1="30" x2="40" y2="30" />
+                            <line x1="16" y1="38" x2="44" y2="38" />
+                            <path d="M24 46v8l8-4" />
+                        </svg>
+                    </div>
+                    <h3>NLP</h3>
+                    <span class="project-count">50 Projects</span>
+                    <p class="card-desc">Natural language processing and language understanding.</p>
+                    <a href="../../Templates/List of Projects/Project_display.html?domain=NLP" class="view-projects-btn">View Projects <span>&rarr;</span></a>
+                </div>
+
+                <!-- Quantum Inspired ML -->
+                <div class="domain-card" data-category="quantum-ml">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="32" cy="32" r="4" fill="currentColor" />
+                            <ellipse cx="32" cy="32" rx="26" ry="10" />
+                            <ellipse cx="32" cy="32" rx="26" ry="10" transform="rotate(60 32 32)" />
+                            <ellipse cx="32" cy="32" rx="26" ry="10" transform="rotate(120 32 32)" />
+                            <circle cx="32" cy="32" r="3" />
+                        </svg>
+                    </div>
+                    <h3>Quantum Inspired ML</h3>
+                    <span class="project-count">50 Projects</span>
+                    <p class="card-desc">Quantum inspired algorithms and hybrid approaches.</p>
+                    <a href="../../Templates/List of Projects/Project_display.html?domain=Quantum%20Inspired%20ML" class="view-projects-btn">View Projects <span>&rarr;</span></a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ===== FOOTER INFO BAR ===== -->
+    <section id="footer-info" class="footer-info">
+        <div class="page-container footer-info-inner">
+            <div class="footer-info-left">
+                <div class="footer-info-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <circle cx="12" cy="12" r="3" />
+                        <path
+                            d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" />
+                    </svg>
+                </div>
+                <div class="footer-info-text">
+                    <h3>Each project includes</h3>
+                    <ul class="includes-list">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Project Code
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Project Title
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            IEEE Paper (Hyperlink)
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Technologies Used
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <a href="#" id="btn-sample-project" class="btn btn-outline-dark">View Sample Project <span>&rarr;</span></a>
+        </div>
+    </section>
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer" style="background: var(--bg-dark, #09090b); color: rgba(255,255,255,0.7); padding: 30px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); margin-top: auto;">
+        <div class="page-container">
+            <small>&copy; <span class="year">2026</span> <a href="https://makeprojects.in/" target="_blank" style="color: var(--primary-light, #a855f7); text-decoration: none; font-weight: 600;">MakeProjects.in</a> — All rights reserved.</small>
+        </div>
+    </footer>
+
+    <script src="IEEE_Script.js?v=2"></script>
+</body>
+
+</html>

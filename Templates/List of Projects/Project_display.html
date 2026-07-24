@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Display - MakeProjects.in</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Project_display.css">
+    <!-- PapaParse for CSV parsing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+    <!-- ===== NAVBAR ===== -->
+    <header id="site-header" class="site-header">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo-link">
+                <div class="logo-icon">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <rect width="32" height="32" rx="8" fill="#7c3aed" />
+                        <path d="M8 16l4-6 4 6-4 6z" fill="#c4b5fd" />
+                        <path d="M16 16l4-6 4 6-4 6z" fill="#ede9fe" />
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-name">MakeProjects.in</span>
+                    <span class="logo-tagline">Build. Learn. Get Placed.</span>
+                </div>
+            </a>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle navigation">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+            <nav id="main-nav" class="main-nav">
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../../Tabs/IEEE_Tab/IEEE_Projects.html" class="nav-active">IEEE Projects</a></li>
+                    <li><a href="../../Tabs/General_Tab/General_projects.html">General Projects</a></li>
+                    <li><a href="../../Tabs/How_it_works/how_it_works.html">How It Works</a></li>
+                    <li><a href="../../Tabs/Request/Request.html">Request</a></li>
+                    <li><a href="../../Tabs/Contact_US/Contact.html">Contact Us</a></li>
+                    <li><a href="../../Tabs/About/About.html">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 id="domain-title">Loading Projects...</h1>
+            <p>Explore cutting-edge projects and implementations in this domain.</p>
+        </div>
+    </section>
+
+    <!-- ===== PROJECTS SECTION ===== -->
+    <section class="projects-section">
+        <div class="page-container">
+            <div id="loading-spinner" class="loading-spinner">
+                <div class="spinner"></div>
+                <p>Fetching projects data...</p>
+            </div>
+            
+            <div id="error-message" class="error-message" style="display: none;">
+                <!-- Error content will be injected here -->
+            </div>
+
+            <div id="projects-grid" class="projects-grid" style="display: none;">
+                <!-- Project cards will be injected here dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="page-container">
+            <p>&copy; 2026 MakeProjects.in — All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="Project_display.js?v=4"></script>
+</body>
+</html>
+
