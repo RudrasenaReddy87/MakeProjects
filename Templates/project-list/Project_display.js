@@ -23,9 +23,23 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Update title
+    // Update title and SEO meta tags
     domainTitle.textContent = requestedDomain + " Projects";
-    document.title = `${requestedDomain} Projects - MakeProjects.in`;
+    document.title = `${requestedDomain} Projects for Final Year Students | MakeProjects.in`;
+    
+    // Update canonical URL
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.href = `https://makeprojects.in/Templates/project-list/Project_display.html?domain=${encodeURIComponent(requestedDomain)}`;
+    
+    // Update meta description
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.content = `Browse ${requestedDomain} projects for B.Tech and M.Tech final year students. Each project includes source code, IEEE paper reference, and technologies used.`;
+    
+    // Update OG tags
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.content = `${requestedDomain} Projects | MakeProjects.in`;
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) ogDesc.content = `Browse ${requestedDomain} projects for engineering students.`;
 
     // Domain configuration mapping
     const domainsConfig = [
@@ -133,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 
                 <div class="card-actions">
-                    <a href="../Show Project/show.html?project=${encodeURIComponent(code)}&domain=${encodeURIComponent(requestedDomain)}" class="btn-primary">View Details</a>
+                    <a href="../project-detail/show.html?project=${encodeURIComponent(code)}&domain=${encodeURIComponent(requestedDomain)}" class="btn-primary">View Details</a>
                     ${paperLink && paperLink !== '#' ? `<a href="${paperLink}" target="_blank" class="btn-secondary">IEEE Paper</a>` : ''}
                 </div>
             `;

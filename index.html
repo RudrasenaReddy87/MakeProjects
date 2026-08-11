@@ -4,11 +4,63 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MakeProjects.in</title>
+  <title>IEEE &amp; Final Year Projects for B.Tech &amp; M.Tech | MakeProjects.in</title>
+  <meta name="description" content="Explore 100+ IEEE and final year projects for B.Tech & M.Tech students. Domains include AI, Machine Learning, Deep Learning, Cybersecurity, NLP & more. Expert guidance and implementation support." />
+  <link rel="canonical" href="https://makeprojects.in/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="IEEE & Final Year Projects for B.Tech & M.Tech | MakeProjects.in" />
+  <meta property="og:description" content="Explore 100+ IEEE and final year projects for B.Tech & M.Tech students across AI, ML, Cybersecurity, NLP and more." />
+  <meta property="og:url" content="https://makeprojects.in/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="MakeProjects.in" />
+  <meta property="og:image" content="https://makeprojects.in/Src/img/main_logo.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="IEEE & Final Year Projects for B.Tech & M.Tech | MakeProjects.in" />
+  <meta name="twitter:description" content="Explore 100+ IEEE and final year projects for B.Tech & M.Tech students across AI, ML, Cybersecurity, NLP and more." />
+  <meta name="twitter:image" content="https://makeprojects.in/Src/img/main_logo.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css?v=2" />
+  <link rel="stylesheet" href="./style.css?v=3" />
+
+  <!-- Structured Data: Organization + WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "MakeProjects.in",
+        "url": "https://makeprojects.in/",
+        "description": "MakeProjects.in provides IEEE and industry-relevant final year projects for B.Tech and M.Tech students with expert implementation support.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+91-7780401166",
+          "contactType": "customer service",
+          "email": "thulasikrishna308@gmail.com",
+          "areaServed": "IN",
+          "availableLanguage": "English"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Tirupati",
+          "addressRegion": "Andhra Pradesh",
+          "addressCountry": "IN"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "name": "MakeProjects.in",
+        "url": "https://makeprojects.in/",
+        "description": "IEEE and final year project solutions for engineering students"
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -16,17 +68,17 @@
   <header class="page-header">
     <div class="container">
       <div class="header-content">
-        <div class="logo">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <a href="/" class="logo" aria-label="MakeProjects.in — Home">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
             <rect width="32" height="32" rx="8" fill="#059669" />
             <path d="M8 16l4-6 4 6-4 6z" fill="#d1fae5" />
             <path d="M16 16l4-6 4 6-4 6z" fill="#ecfdf5" />
           </svg>
           <div class="logo-text">
-            <h1>MakeProjects.in</h1>
-            <p>Build. Learn. Get Placed.</p>
+            <span class="logo-brand">MakeProjects.in</span>
+            <span class="logo-tagline-text">Build. Learn. Get Placed.</span>
           </div>
-        </div>
+        </a>
         <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle navigation">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -34,7 +86,7 @@
             <line x1="3" y1="18" x2="21" y2="18"></line>
           </svg>
         </button>
-        <nav id="main-nav" class="main-nav">
+        <nav id="main-nav" class="main-nav" aria-label="Main navigation">
           <ul>
             <li><a href="./Tabs/IEEE_Tab/IEEE_Projects.html">IEEE Projects</a></li>
             <li><a href="./Tabs/General_Tab/General_projects.html">General Projects</a></li>
@@ -55,8 +107,8 @@
       <div class="container" style="position: relative; z-index: 2;">
         <div class="hero-content">
           <div class="hero-text">
-            <span class="hero-tag">FOR B.TECH & M.TECH STUDENTS</span>
-            <h2 class="hero-title">Industry-Ready Projects.<br>Real-World Skills.<br>Better Careers.</h2>
+            <span class="hero-tag">FOR B.TECH &amp; M.TECH STUDENTS</span>
+            <h1 class="hero-title">IEEE &amp; Final Year Projects for B.Tech &amp; M.Tech Students</h1>
             <p class="hero-subtitle">Explore curated IEEE and industry-relevant projects aligned with the latest
               technology trends. Build real-world skills, strengthen your resume, and get ready for placements and top tech careers.</p>
             <div class="hero-features">
@@ -83,7 +135,7 @@
                   <span id="live-datetime" class="live-datetime"></span>
                 </div>
                 <div class="graphic-body">
-                  <h3 class="glass-card-title">Project Preview</h3>
+                  <h2 class="glass-card-title">Project Preview</h2>
                   <p class="glass-card-subtitle">Real-world implementation</p>
                   <div class="glass-card-code">
                     <pre><code id="typing-code"></code><span class="cursor">_</span></pre>
@@ -123,20 +175,46 @@
       </div>
     </section>
 
+    <!-- What We Offer — SEO content section -->
+    <section class="about-brief-section">
+      <div class="container">
+        <h2 class="section-title">What MakeProjects.in Offers</h2>
+        <p class="section-subtitle">Your one-stop platform for IEEE and final year engineering projects</p>
+        <div class="about-brief-grid">
+          <div class="about-brief-item">
+            <h3>IEEE Research Projects</h3>
+            <p>Access projects based on IEEE Xplore indexed research papers. Each project comes with the base paper reference, project code, and technologies used — ideal for B.Tech and M.Tech final year submissions.</p>
+          </div>
+          <div class="about-brief-item">
+            <h3>Industry-Relevant Domains</h3>
+            <p>Choose from domains including Artificial Intelligence, Machine Learning, Deep Learning, Data Science, Cybersecurity, Natural Language Processing (NLP), and Quantum-Inspired ML.</p>
+          </div>
+          <div class="about-brief-item">
+            <h3>Implementation Support</h3>
+            <p>Get step-by-step implementation guidance, expert mentorship, and technical support via WhatsApp. We help you understand the architecture so you can confidently present your project.</p>
+          </div>
+          <div class="about-brief-item">
+            <h3>Custom Project Requests</h3>
+            <p>Need a project tailored to your university requirements? Submit a request and our team will build or customize a project that aligns with your specific needs and timeline.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="path-section">
       <div class="container">
-        <h3 class="section-title">Choose Your Path</h3>
-        <p class="section-subtitle">Explore project ideas across IEEE & General domains</p>
+        <h2 class="section-title">Choose Your Path</h2>
+        <p class="section-subtitle">Explore project ideas across IEEE &amp; General domains</p>
         <div class="path-grid">
           <div class="path-card">
             <div class="path-icon">💠</div>
-            <h4>IEEE Projects</h4>
+            <h3>IEEE Projects</h3>
             <p>Research-backed projects based on IEEE Xplore indexed papers.</p>
             <a href="./Tabs/IEEE_Tab/IEEE_Projects.html" class="btn btn-primary">Explore IEEE Projects →</a>
           </div>
           <div class="path-card">
             <div class="path-icon">🗂️</div>
-            <h4>General Projects</h4>
+            <h3>General Projects</h3>
             <p>Industry-focused projects to build practical skills and strong portfolios.</p>
             <a href="./Tabs/General_Tab/General_projects.html" class="btn btn-primary">Explore General Projects →</a>
           </div>
@@ -147,14 +225,22 @@
 
   <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
-      <div class="page-container">
-          <small>&copy; <span class="year">2026</span> <a href="https://makeprojects.in/">MakeProjects.in</a> — All rights reserved.</small><br>
+      <div class="container">
+          <nav class="footer-nav" aria-label="Footer navigation">
+              <a href="./Tabs/IEEE_Tab/IEEE_Projects.html">IEEE Projects</a>
+              <a href="./Tabs/General_Tab/General_projects.html">General Projects</a>
+              <a href="./Tabs/How_it_works/how_it_works.html">How It Works</a>
+              <a href="./Tabs/Request/Request.html">Request</a>
+              <a href="./Tabs/Contact_US/Contact.html">Contact Us</a>
+              <a href="./Tabs/About/About.html">About Us</a>
+          </nav>
+          <small>&copy; <span id="year">2026</span> <a href="https://makeprojects.in/">MakeProjects.in</a> — All rights reserved.</small><br>
           <small>Email: thulasikrishna308@gmail.com | Phone: +91-7780401166</small><br>
           <small>Tirupati, Andhra Pradesh, India</small>
       </div>
   </footer>
 
-  <script src="./script.js?v=2" defer></script>
+  <script src="./script.js?v=3" defer></script>
 </body>
 
 </html>

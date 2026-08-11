@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects Display - MakeProjects.in</title>
+    <meta name="description" content="Explore IEEE and industry-relevant projects in this domain. Each project includes source code, IEEE paper reference, and technologies used.">
+    <title>Projects - MakeProjects.in</title>
+    <link rel="canonical" href="https://makeprojects.in/Templates/project-list/Project_display.html">
+
+    <!-- Open Graph (JS will update dynamically) -->
+    <meta property="og:title" content="Projects - MakeProjects.in" />
+    <meta property="og:description" content="Explore IEEE and industry-relevant projects." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MakeProjects.in" />
+    <meta property="og:image" content="https://makeprojects.in/Src/img/main_logo.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,7 +25,7 @@
     <!-- ===== NAVBAR ===== -->
     <header id="site-header" class="site-header">
         <div class="nav-container">
-            <a href="../../index.html" class="logo-link">
+            <a href="/" class="logo-link">
                 <div class="logo-icon">
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
                         <rect width="32" height="32" rx="8" fill="#7c3aed" />
@@ -37,7 +47,7 @@
             </button>
             <nav id="main-nav" class="main-nav">
                 <ul>
-                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="../../Tabs/IEEE_Tab/IEEE_Projects.html" class="nav-active">IEEE Projects</a></li>
                     <li><a href="../../Tabs/General_Tab/General_projects.html">General Projects</a></li>
                     <li><a href="../../Tabs/How_it_works/how_it_works.html">How It Works</a></li>
@@ -73,6 +83,10 @@
             <div id="projects-grid" class="projects-grid" style="display: none;">
                 <!-- Project cards will be injected here dynamically -->
             </div>
+
+            <noscript>
+                <p style="text-align:center;padding:2rem;color:#64748b;">JavaScript is required to view project listings. Please enable JavaScript in your browser and reload the page.</p>
+            </noscript>
         </div>
     </section>
 

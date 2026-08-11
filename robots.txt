@@ -1,0 +1,13 @@
+# robots.txt for MakeProjects.in
+# https://makeprojects.in/robots.txt
+
+User-agent: *
+Allow: /
+
+# Block internal utility/screenshot directories
+Disallow: /Desktop_View/
+Disallow: /Mobile_View/
+Disallow: /.git/
+
+# Sitemap location
+Sitemap: https://makeprojects.in/sitemap.xml

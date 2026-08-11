@@ -516,7 +516,116 @@ ul {
   border-radius: 16px;
 }
 
+/* ===== ABOUT BRIEF SECTION (Homepage SEO content) ===== */
+.about-brief-section {
+  padding: 4rem 0;
+  background: var(--bg);
+}
+
+.about-brief-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.about-brief-item {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.about-brief-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(5, 150, 105, 0.3);
+}
+
+.about-brief-item h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.75rem;
+}
+
+.about-brief-item p {
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
 /* ===== FOOTER ===== */
+.site-footer {
+  text-align: center;
+  padding: 2.5rem 0;
+  color: rgba(255,255,255,0.7);
+  background: var(--secondary);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.site-footer small {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.site-footer a {
+  color: #34d399;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.site-footer a:hover {
+  color: #6ee7b7;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer-nav a {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-nav a:hover {
+  color: #fff;
+}
+
+/* Logo brand text (replaces H1 in logo) */
+.logo-brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.logo-tagline-text {
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.logo {
+  text-decoration: none;
+}
+
+.footer small,
+.footer-nav a {
+  /* ensure old .footer class doesn't clash */
+}
+
+/* Legacy .footer support */
 .footer {
   text-align: center;
   padding: 3rem 0;

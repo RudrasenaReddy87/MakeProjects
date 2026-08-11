@@ -118,7 +118,19 @@ document.addEventListener('DOMContentLoaded', () => {
         // Update Hero
         const title = project['Project Title'] || 'Untitled Project';
         displayTitle.textContent = title;
-        document.title = `${title} | MakeProjects.in`;
+        document.title = `${title} | ${requestedDomain} Project | MakeProjects.in`;
+        
+        // Update SEO meta tags dynamically
+        const canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) canonical.href = `https://makeprojects.in/Templates/project-detail/show.html?project=${encodeURIComponent(requestedProjectCode)}&domain=${encodeURIComponent(requestedDomain)}`;
+        
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.content = `${title} — ${requestedDomain} project. View project code, IEEE paper reference, and technologies used at MakeProjects.in`;
+        
+        const ogTitle = document.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.content = `${title} | MakeProjects.in`;
+        const ogDesc = document.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.content = `${title} — ${requestedDomain} project details.`;
 
         // Inject dynamic fields based on CSV column headers
         Object.keys(project).forEach(key => {
