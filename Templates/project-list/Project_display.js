@@ -83,24 +83,37 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .then(response => response.text())
             .then(csvText => {
-                Papa.parse(csvText, {
-                    header: true,
-                    skipEmptyLines: true,
-                    complete: function(results) {
-                        if (results.errors && results.errors.length > 0 && results.data.length === 0) {
-                            showError("Error parsing the projects data file.");
-                            console.error(results.errors);
-                            return;
-                        }
-                        
-                        renderProjects(results.data);
-                    }
-                });
+                parseCSV(csvText);
             })
             .catch(err => {
-                showError(err.message);
-                console.error(err);
+                console.warn("Fetch failed, trying fallback variable.", err);
+                if (typeof AgenticAICsvData !== 'undefined') {
+                    parseCSV(AgenticAICsvData);
+                } else {
+                    showError(err.message || `Failed to load projects file: ${fileName}.`);
+                    console.error(err);
+                }
             });
+    }
+
+    function parseCSV(csvText) {
+        if (typeof Papa === 'undefined') {
+            showError("PapaParse library not loaded. Please check your internet connection.");
+            return;
+        }
+        Papa.parse(csvText, {
+            header: true,
+            skipEmptyLines: true,
+            complete: function(results) {
+                if (results.errors && results.errors.length > 0 && results.data.length === 0) {
+                    showError("Error parsing the projects data file.");
+                    console.error(results.errors);
+                    return;
+                }
+                
+                renderProjects(results.data);
+            }
+        });
     }
 
     // 4. Render projects to the UI
@@ -147,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 
                 <div class="card-actions">
-                    <a href="../project-detail/show.html?project=${encodeURIComponent(code)}&domain=${encodeURIComponent(requestedDomain)}" class="btn-primary">View Details</a>
+                    <a href="../project-detail/show.html?project=${encodeURIComponent(code)}&domain=${encodeURIComponent(requestedDomain)}&t=${Date.now()}" class="btn-primary">View Details</a>
                     ${paperLink && paperLink !== '#' ? `<a href="${paperLink}" target="_blank" class="btn-secondary">IEEE Paper</a>` : ''}
                 </div>
             `;

@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Buttons
     const btnBuy = document.getElementById('btn-buy');
-    const btnInquire = document.getElementById('btn-inquire');
 
     // Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -26,10 +25,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Global Error Handler for debugging
+    window.addEventListener('error', function(e) {
+        if (loadingSpinner) loadingSpinner.style.display = 'none';
+        if (errorMessage) {
+            errorMessage.style.display = 'block';
+            errorMessage.innerHTML = `<p style="color:red"><b>Debug Error:</b> ${e.message} at ${e.filename}:${e.lineno}</p>`;
+        }
+    });
+
+    // Global Promise Rejection Handler
+    window.addEventListener('unhandledrejection', function(e) {
+        if (loadingSpinner) loadingSpinner.style.display = 'none';
+        if (errorMessage) {
+            errorMessage.style.display = 'block';
+            errorMessage.innerHTML = `<p style="color:red"><b>Debug Promise Error:</b> ${e.reason}</p>`;
+        }
+    });
+
     // 1. Get parameters from URL
     const urlParams = new URLSearchParams(window.location.search);
-    const requestedProjectCode = urlParams.get('project');
-    const requestedDomain = urlParams.get('domain');
+    const requestedProjectCode = urlParams.get('project') ? urlParams.get('project').trim() : null;
+    const requestedDomain = urlParams.get('domain') ? urlParams.get('domain').trim() : null;
 
     if (!requestedProjectCode || !requestedDomain) {
         showError("Invalid link. Missing project code or domain in the URL.");
@@ -63,6 +80,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. Load and parse the CSV file
     function loadProjectFromCSV(fileName) {
+        // Bypass fetch entirely for local file viewing if fallback is available
+        if (window.location.protocol === 'file:' && typeof AgenticAICsvData !== 'undefined') {
+            console.log("Local file system detected. Using fallback data directly.");
+            parseCSV(AgenticAICsvData);
+            return;
+        }
+
         let csvUrl = `../../CSV_files/${fileName}`;
         
         fetch(csvUrl)
@@ -81,42 +105,65 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .then(response => response.text())
             .then(csvText => {
-                Papa.parse(csvText, {
-                    header: true,
-                    skipEmptyLines: true,
-                    complete: function(results) {
-                        if (results.errors && results.errors.length > 0 && results.data.length === 0) {
-                            showError("Error parsing the projects data file.");
-                            console.error(results.errors);
-                            return;
-                        }
-                        
-                        findAndRenderProject(results.data);
-                    }
-                });
+                parseCSV(csvText);
             })
             .catch(err => {
-                showError(err.message);
-                console.error(err);
+                console.warn("Fetch failed, trying fallback variable.", err);
+                if (typeof AgenticAICsvData !== 'undefined') {
+                    parseCSV(AgenticAICsvData);
+                } else {
+                    showError(err.message || `Failed to load projects file: ${fileName}.`);
+                    console.error(err);
+                }
             });
+    }
+
+    function parseCSV(csvText) {
+        if (typeof Papa === 'undefined') {
+            showError("PapaParse library not loaded. Please check your internet connection.");
+            return;
+        }
+        try {
+            Papa.parse(csvText, {
+                header: true,
+                skipEmptyLines: true,
+                complete: function(results) {
+                    if (results.errors && results.errors.length > 0 && results.data.length === 0) {
+                        showError("Error parsing the projects data file.");
+                        console.error(results.errors);
+                        return;
+                    }
+                    
+                    findAndRenderProject(results.data);
+                }
+            });
+        } catch (e) {
+            showError("Fatal error during CSV parsing: " + e.message);
+        }
     }
 
     // 4. Find the specific project and render it
     function findAndRenderProject(allProjects) {
-        // Find the project matching the requested code
-        const project = allProjects.find(p => p['Project Code'] === requestedProjectCode);
+        try {
+            // Find the project matching the requested code
+            const project = allProjects.find(p => {
+                const code = p['Project Code'] || p['Code'] || '';
+                return code.trim() === requestedProjectCode;
+            });
 
-        if (!project) {
-            showError(`Project with code "${requestedProjectCode}" could not be found.`);
-            return;
-        }
+            if (!project) {
+                // Get a list of available codes for debugging
+                const availableCodes = allProjects.slice(0, 5).map(p => p['Project Code']).join(', ');
+                showError(`Project with code "${requestedProjectCode}" could not be found. Found codes like: ${availableCodes}...`);
+                return;
+            }
 
-        // --- Update UI ---
-        statusContainer.style.display = 'none';
-        projectMain.style.display = 'flex';
+            // --- Update UI ---
+            statusContainer.style.display = 'none';
+            projectMain.style.display = 'flex';
 
-        // Update Hero
-        const title = project['Project Title'] || 'Untitled Project';
+            // Update Hero
+            const title = project['Project Title'] || 'Untitled Project';
         displayTitle.textContent = title;
         document.title = `${title} | ${requestedDomain} Project | MakeProjects.in`;
         
@@ -172,6 +219,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // --- Setup WhatsApp Integration ---
         setupWhatsAppButtons(project);
+        
+        } catch (e) {
+            showError("Fatal error rendering project: " + e.message);
+            console.error(e);
+        }
     }
 
     function setupWhatsAppButtons(project) {
@@ -183,21 +235,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const whatsappNumber = "917780401166"; 
 
         // Generate the exact message structure requested for Buy
-        const buyMessageText = `Hello Sir,\n\nI would like to download the following project:\n\nProject Code: ${code}\nProject Title: ${title}\nDomain: ${domain}\n\nCould you please provide me with the project files or the download link?\n\nThank you, Sir.`;
+        const buyMessageText = `Hello Sir,\n\nI would like to enquire about the following project:\n\n*Project Code:* ${code}\n*Project Title:* ${title}\n*Domain:* ${domain}\n\nThank you, Sir.`;
         const buyWhatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(buyMessageText)}`;
-
-        // Generate the exact message structure requested for General Inquiry
-        // Using a single asterisk (*) for WhatsApp bold text formatting
-        const inquireMessageText = `Hello Sir,\n\nI would like to know more details about the following project:\n\n*Project Code:* ${code}\n*Project Title:* ${title}\n*Domain:* ${domain}\n\nCould you please share the project details and let me know the price? Also, would it be possible to discuss and negotiate the price?\n\nThank you, Sir.`;
-        const inquireWhatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(inquireMessageText)}`;
 
         // Attach click events to both buttons to redirect to WhatsApp
         btnBuy.addEventListener('click', () => {
             window.open(buyWhatsappUrl, '_blank');
-        });
-        
-        btnInquire.addEventListener('click', () => {
-            window.open(inquireWhatsappUrl, '_blank');
         });
     }
 
