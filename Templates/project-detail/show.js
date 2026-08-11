@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const domain = requestedDomain || '';
         
         // Define target WhatsApp number (include country code)
-        const whatsappNumber = "917780401166"; 
+        const whatsappNumber = "919014971034"; 
 
         // Generate the exact message structure requested for Buy
         const buyMessageText = `Hello Sir,\n\nI would like to enquire about the following project:\n\n*Project Code:* ${code}\n*Project Title:* ${title}\n*Domain:* ${domain}\n\nThank you, Sir.`;

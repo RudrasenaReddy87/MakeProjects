@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (timeline) message += `*Timeline:* ${timeline}%0A`;
             message += `%0A*Project Details:*%0A${encodeURIComponent(details)}`;
 
-            const whatsappNumber = "917780401166";
+            const whatsappNumber = "919014971034";
             const whatsappURL = `https://wa.me/${whatsappNumber}?text=${message}`;
 
             // Update button UX
