@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const domainsConfig = [
         { "Domain": "Agentic AI", "Project_CSV": "Agentic_AI.csv" },
         { "Domain": "AI", "Project_CSV": "Agentic_AI.csv" },
-        { "Domain": "Cybersecurity", "Project_CSV": "Agentic_AI.csv" },
+        { "Domain": "Cybersecurity", "Project_CSV": "Cyber_Security.csv" },
         { "Domain": "Data Science", "Project_CSV": "Agentic_AI.csv" },
         { "Domain": "Deep Learning", "Project_CSV": "Agentic_AI.csv" },
         { "Domain": "Machine Learning", "Project_CSV": "Agentic_AI.csv" },
@@ -87,8 +87,10 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(err => {
                 console.warn("Fetch failed, trying fallback variable.", err);
-                if (typeof AgenticAICsvData !== 'undefined') {
+                if (fileName === 'Agentic_AI.csv' && typeof AgenticAICsvData !== 'undefined') {
                     parseCSV(AgenticAICsvData);
+                } else if (fileName === 'Cyber_Security.csv' && typeof CyberSecurityCsvData !== 'undefined') {
+                    parseCSV(CyberSecurityCsvData);
                 } else {
                     showError(err.message || `Failed to load projects file: ${fileName}.`);
                     console.error(err);
