@@ -5,7 +5,7 @@
     },
     {
         "Domain": "AI",
-        "Project_CSV": "Agentic_AI.csv"
+        "Project_CSV": "AI.csv"
     },
     {
         "Domain": "Cybersecurity",
@@ -13,7 +13,7 @@
     },
     {
         "Domain": "Data Science",
-        "Project_CSV": "Agentic_AI.csv"
+        "Project_CSV": "Data_Science.csv"
     },
     {
         "Domain": "Deep Learning",

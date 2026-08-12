@@ -3,10 +3,19 @@
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mainNav = document.getElementById('main-nav');
   if (mobileMenuBtn && mainNav) {
-    mobileMenuBtn.addEventListener('click', () => {
-      mainNav.classList.toggle('active');
-    });
-  }
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mainNav.classList.toggle('active');
+            mainNav.classList.toggle('show');
+        });
+        document.addEventListener('click', (e) => {
+            if (mainNav.classList.contains('active') || mainNav.classList.contains('show')) {
+                if (!mainNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    mainNav.classList.remove('active', 'show');
+                }
+            }
+        });
+    }
 
   // Add sidebar to top bar on mobile and larger screens
   function addSidebarToTop() {
@@ -193,4 +202,139 @@
   // Update time immediately and then every second
   updateLiveTime();
   setInterval(updateLiveTime, 1000);
+})();
+
+
+// --- Hover Flow Pill Logic ---
+document.addEventListener("DOMContentLoaded", () => {
+    const mainNavUlList = document.querySelectorAll('.main-nav ul');
+    mainNavUlList.forEach(mainNavUl => {
+        if (mainNavUl.querySelector('.hover-pill')) return; 
+
+        const pill = document.createElement('li');
+        pill.className = 'hover-pill';
+        mainNavUl.appendChild(pill);
+
+        const navLinks = mainNavUl.querySelectorAll('li a');
+        const activeLink = mainNavUl.querySelector('a.nav-active');
+
+        function setPillTo(element) {
+            if (!element) {
+                pill.style.opacity = '0';
+                return;
+            }
+            requestAnimationFrame(() => {
+                pill.style.width = `${element.offsetWidth}px`;
+                pill.style.height = `${element.offsetHeight}px`;
+                pill.style.left = `${element.offsetLeft}px`;
+                pill.style.top = `${element.offsetTop}px`;
+                pill.style.opacity = '1';
+            });
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                setPillTo(this.parentElement);
+            });
+            link.addEventListener('touchstart', function() {
+                setPillTo(this.parentElement);
+            }, {passive: true});
+        });
+
+        mainNavUl.addEventListener('mouseleave', () => {
+            if (activeLink) {
+                setPillTo(activeLink.parentElement);
+            } else {
+                pill.style.opacity = '0';
+            }
+        });
+
+        setTimeout(() => {
+            if (activeLink && activeLink.offsetWidth > 0) {
+                setPillTo(activeLink.parentElement);
+                pill.style.transition = 'none';
+                setTimeout(() => pill.style.transition = '', 50);
+            }
+        }, 100);
+
+        window.addEventListener('resize', () => {
+            if (activeLink && activeLink.offsetWidth > 0) {
+                setPillTo(activeLink.parentElement);
+            }
+        });
+        
+        document.addEventListener('click', (e) => {
+            const toggle = e.target.closest('.mobile-menu-btn');
+            if (toggle) {
+                setTimeout(() => {
+                    if (activeLink && activeLink.offsetWidth > 0) {
+                        setPillTo(activeLink.parentElement);
+                    }
+                }, 100);
+            }
+        });
+    });
+});
+
+// Dynamic Scroll Gradient Listener
+function syncScrollGradient() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const scrollHeight = (document.documentElement.scrollHeight || document.body.scrollHeight) - window.innerHeight;
+    const progress = Math.min(Math.max(scrollHeight > 0 ? scrollTop / scrollHeight : 0, 0), 1);
+    document.documentElement.style.setProperty('--scroll-p', progress.toFixed(4));
+}
+window.addEventListener('scroll', syncScrollGradient, { passive: true });
+window.addEventListener('resize', syncScrollGradient, { passive: true });
+document.addEventListener('DOMContentLoaded', syncScrollGradient);
+syncScrollGradient();
+
+// =====================================================
+// BUBBLE SPOTLIGHT — mouse-tracking glow on cards
+// =====================================================
+(function initBubbleEffects() {
+    const SELECTORS = ['.stat-item', '.path-card', '.about-brief-item', '.project-card', '.glass-panel'];
+
+    function updateBubble(e) {
+        const el   = e.currentTarget;
+        const rect = el.getBoundingClientRect();
+        el.style.setProperty('--mx', ((e.clientX - rect.left) / rect.width  * 100).toFixed(1) + '%');
+        el.style.setProperty('--my', ((e.clientY - rect.top)  / rect.height * 100).toFixed(1) + '%');
+    }
+
+    function resetBubble(e) {
+        e.currentTarget.style.setProperty('--mx', '50%');
+        e.currentTarget.style.setProperty('--my', '50%');
+    }
+
+    function addRipple(e) {
+        const el   = e.currentTarget;
+        const rect = el.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height) * 0.6;
+        const ring = document.createElement('span');
+        ring.className = 'ripple-ring';
+        ring.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX - rect.left - size / 2}px;top:${e.clientY - rect.top - size / 2}px`;
+        el.appendChild(ring);
+        ring.addEventListener('animationend', () => ring.remove(), { once: true });
+    }
+
+    function attachToElements() {
+        SELECTORS.forEach(sel => {
+            document.querySelectorAll(sel).forEach(el => {
+                if (el.dataset.bubbleAttached) return;
+                el.dataset.bubbleAttached = '1';
+                el.style.setProperty('--mx', '50%');
+                el.style.setProperty('--my', '50%');
+                el.addEventListener('mousemove',  updateBubble);
+                el.addEventListener('mouseleave', resetBubble);
+                el.addEventListener('click',      addRipple);
+            });
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', attachToElements);
+    const cardObserver = new MutationObserver(attachToElements);
+    document.addEventListener('DOMContentLoaded', () => {
+        const root = document.getElementById('projects-grid') || document.body;
+        cardObserver.observe(root, { childList: true, subtree: true });
+    });
 })();

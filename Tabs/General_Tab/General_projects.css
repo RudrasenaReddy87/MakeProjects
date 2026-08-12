@@ -11,7 +11,7 @@
 
 /* ---------- Design Tokens ---------- */
 :root {
-    --bg-body: #f0fdf4;
+    --bg-body: linear-gradient(135deg, #ffedd5 0%, #bae6fd 50%, #dcfce7 100%);
     --bg-white: #ffffff;
     --bg-dark: #022c22;
     --bg-hero: linear-gradient(135deg, #022c22 0%, #064e3b 35%, #047857 70%, #059669 100%);
@@ -52,11 +52,38 @@ html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     font-size: clamp(14px, 1.2vw + 0.5rem, 18px);
+    min-height: 100vh;
+    background: linear-gradient(
+        135deg,
+        hsl(calc(30 + var(--scroll-p, 0) * 120), 85%, 93%) 0%,
+        hsl(calc(195 + var(--scroll-p, 0) * 80), 80%, 91%) 50%,
+        hsl(calc(140 + var(--scroll-p, 0) * 110), 75%, 93%) 100%
+    ) !important;
+    background-attachment: fixed !important;
+}
+
+.hero-banner h1,
+.hero-content h1,
+.section-title,
+.section-heading,
+.page-title,
+.logo-text h1,
+.sidebar-title,
+.domain-card h3 {
+    background: linear-gradient(
+        135deg,
+        hsl(calc(15 + var(--scroll-p, 0) * 160), 90%, 25%) 0%,
+        hsl(calc(160 + var(--scroll-p, 0) * 140), 85%, 35%) 100%
+    ) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    transition: background 0.1s ease-out;
 }
 
 body {
     font-family: var(--font);
-    background: var(--bg-body);
+    background: transparent;
     color: var(--text-body);
     line-height: 1.6;
     min-height: 100vh;
@@ -131,29 +158,42 @@ button {
 /* ===================================================
    HEADER / NAVBAR
    =================================================== */
-.site-header {
-    background: var(--bg-dark);
-    position: sticky;
-    top: 0;
+.site-header { 
+    position: fixed;
+    top: 20px; left: 0; right: 0;
     z-index: 100;
-    backdrop-filter: blur(12px);
-    transition: box-shadow var(--transition);
-}
+    margin: 0 auto;
+    width: 96%; max-width: 1400px; height: 90px; transition: all 0.3s ease;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.09);
+    backdrop-filter: blur(1px) url(#lg-filter) blur(2px) saturate(1.5) brightness(1.1);
+    -webkit-backdrop-filter: blur(8px) saturate(1.8) brightness(1.15) contrast(1.05);
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.15),
+        inset 1.5px 1.5px 0 rgba(255, 255, 255, 0.5),
+        inset 0 0 12px rgba(255, 255, 255, 0.2),
+        0 8px 32px rgba(0, 0, 0, 0.2);
+    border-bottom: none;
+    padding: 0;
+ }
 
 .site-header.scrolled {
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
 }
 
 .site-header .nav-container {
-    height: 64px;
+    height: 100%;
 }
 
 /* Logo */
 .logo-link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5mm;
+  padding-top: 4px;
+  text-decoration: none;
 }
 
 .logo-icon svg {
@@ -168,23 +208,37 @@ button {
 }
 
 .logo-tagline {
-    display: block;
-    font-size: 0.7rem;
-    color: var(--text-muted);
-    letter-spacing: 0.2px;
+  font-size: 0.75rem;
+  color: #279b04;
+  font-weight: 700;
+  text-align: center;
 }
 
 /* Nav */
 .main-nav ul {
+
+    
+    background: transparent;
+    border: 1px solid #1ba104;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    padding: 6px 16px;
+    border-radius: 8px;
+    box-shadow: none;
+
+ 
+    
+
     display: flex;
     align-items: center;
     gap: 6px;
 }
 
 .main-nav a {
-    color: rgba(255, 255, 255, 0.65);
+    color: #013220; text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    
     font-size: 0.875rem;
-    font-weight: 500;
+    font-weight: 700;
     padding: 8px 14px;
     border-radius: 6px;
     transition: all var(--transition);
@@ -192,22 +246,26 @@ button {
 
 .main-nav a:hover,
 .main-nav a.nav-active {
-    color: var(--text-white);
-    background: rgba(255, 255, 255, 0.07);
+  color: #000000;
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: translateY(-2px);
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
 .main-nav a.nav-active {
-    color: var(--accent-light);
+    color: #34d399;
 }
 
 /* ===================================================
    HERO BANNER — Emerald Tech Theme
    =================================================== */
 .hero-banner {
-    background: linear-gradient(135deg, #022c22 0%, #064e3b 40%, #047857 70%, #10b981 100%);
+    background: transparent;
     position: relative;
     overflow: hidden;
-    padding: 64px 0 60px;
+    padding: 150px 0 60px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -249,7 +307,7 @@ button {
     font-weight: 700;
     letter-spacing: 1.2px;
     margin-bottom: 16px;
-    border: 1px solid rgba(52, 211, 153, 0.2);
+    border: 1px solid #1ba104;
 }
 
 .hero-content h1 {
@@ -265,9 +323,13 @@ button {
 
 .hero-content p {
     font-size: 1rem;
-    color: rgba(255, 255, 255, 0.65);
+    font-weight: 500;
     line-height: 1.7;
     max-width: 520px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 45%, var(--text-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* Decorative Shapes — Different from IEEE circles */
@@ -509,7 +571,7 @@ button {
 /* Sidebar Tip Card */
 .sidebar-tip-card {
     background: linear-gradient(135deg, var(--accent-pale) 0%, var(--accent-lighter) 100%);
-    border: 1px solid rgba(5, 150, 105, 0.15);
+    border: 1px solid #1ba104;
     border-radius: var(--radius-md);
     padding: 22px 18px;
     box-shadow: var(--shadow-sm);
@@ -621,7 +683,7 @@ button {
 .project-card {
     background: var(--bg-white);
     border-radius: var(--radius-lg);
-    border: 1px solid rgba(0, 0, 0, 0.06);
+    border: 1px solid #1ba104;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
     overflow: hidden;
     display: flex;
@@ -858,7 +920,7 @@ button {
     display: none;
     background: none;
     border: none;
-    color: var(--text-white);
+    color: #0f172a;
     cursor: pointer;
     padding: 4px;
 }
@@ -874,14 +936,27 @@ button {
         top: 100%;
         left: 0;
         right: 0;
-        background: var(--bg-dark);
+        
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      margin-top: 10px;
+      margin-bottom: 20px;
+      width: 96%;
+      left: 2%;
+
         border-top: 1px solid rgba(255,255,255,0.1);
         padding: 20px;
         box-shadow: 0 10px 25px rgba(0,0,0,0.5);
         z-index: 100;
     }
     .main-nav.show { display: block; }
-    .main-nav ul {
+    .main-nav ul { 
+    
+
         flex-direction: column;
         align-items: stretch;
         gap: 15px;
@@ -912,7 +987,7 @@ button {
 
 @media (max-width: 640px) {
     .hero-banner {
-        padding: 36px 0 30px;
+        padding: 150px 0 30px;
     }
 
     .hero-content h1 {
@@ -949,4 +1024,33 @@ button {
     .includes-list {
         justify-content: center;
     }
+}
+
+
+
+.mobile-menu-btn:hover { color: #000000; }
+
+.main-nav ul {
+    position: relative;
+    z-index: 1;
+}
+.main-nav ul li {
+    z-index: 2;
+}
+.hover-pill {
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.3, 1);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.15) 100%);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-radius: 24px;
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.5),
+      inset 0 2px 6px rgba(255, 255, 255, 0.8);
+    opacity: 0;
+    top: 0;
+    left: 0;
 }
